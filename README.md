@@ -1,7 +1,7 @@
 # 🧠 OPS: Módulo Quiz da Meada (Especialista Cartorário)
 
 ## 📋 Visão Geral
-Este pacote contém a configuração especializada do protocolo **ExpertOps** para a função de **Especialista Cartorário (Modo Oitiva)**. O objetivo principal é operacionalizar de modo apartado a função "Quiz da Meada" e a "Minuta de Declarações" cuja origem vem ecossistema do Charlie_BOT, desenvolvido para a equipe do **05º Distrito Policial de Jundiaí/SP**.
+Este pacote contém a configuração especializada do protocolo **ExpertOps** para a função de **Especialista Cartorário (Modo Oitiva)**. O objetivo principal é operacionalizar de modo apartado a função "Quiz da Meada" e a "Minuta de Declarações" cuja origem é o ecossistema do Charlie_BOT, desenvolvido para a equipe do **05º Distrito Policial de Jundiaí/SP**.
 
 A presente arquitetura segue um modelo de **Sobreposição (Overlay)**, onde regras específicas refinam e substituem as diretrizes genéricas do ExpertOps e assim atender à necessidade de agilidade e renderização em tela do operador policial civil.
 
