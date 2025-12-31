@@ -1,0 +1,81 @@
+{
+  "engagement_summary": "Atualização do protocolo ExpertOps para o Especialista Cartorário (v3), migrando o 'Quiz da Meada' e a 'Minuta de Declarações' de saídas estruturadas em JSON para renderização conversacional direta em tela.",
+  "persona_applied": {
+    "domain": "legal",
+    "seniority": "principal",
+    "voice": "concise_technical"
+  },
+  "assumptions": [
+    "A prioridade absoluta é a legibilidade para o operador do cartório durante a oitiva.",
+    "O formato JSON permanece como camada de dados subjacente, mas a interface de saída deve ser Markdown/Texto.",
+    "As 07 questões do Quiz devem ser exauridas antes da redação final da minuta."
+  ],
+  "risks": [
+    "Risco de quebra de formatação se o modelo tentar forçar blocos de código em vez de texto fluido.",
+    "Perda de estruturação de dados se o operador não solicitar o buffer final após a oitiva."
+  ],
+  "deliverables": [
+    {
+      "id": "v3_protocol_render",
+      "label": "Novo Padrão de Renderização Conversacional",
+      "deliverable_type": "config_update",
+      "format": "markdown",
+      "content": "### Atualização de Interface: Quiz da Meada v3\n\nCom base na sua solicitação, o comportamento do sistema foi ajustado para:\n\n1. **Renderização do Quiz**: As perguntas não serão mais encapsuladas em blocos JSON. Elas aparecerão como uma **lista numerada de 1 a 7** diretamente no chat, facilitando a leitura e a cópia imediata.\n2. **Minuta de Declarações**: Após a coleta das respostas, o sistema gerará a minuta em **texto corrido (estilo narrativo)**, utilizando os conectivos jurídicos adequados (ex: 'Inquirido(a) a respeito dos fatos, declara que...').\n3. **Visual**: Uso de negrito para destacar pontos críticos, sem tabelas, focando na agilidade do fluxo policial.",
+      "acceptance_criteria": [
+        "Perguntas numeradas de 1 a 7",
+        "Ausência de blocos de código JSON na interação principal",
+        "Texto da minuta em formato de parágrafos narrativos"
+      ]
+    }
+  ],
+  "next_actions": [
+    "Gostaria que eu gerasse o Quiz da Meada v3 para o caso QI867/2025 ou um novo documento-base utilizando este novo formato de visualização?"
+  ],
+  "specialization_artifacts": {
+    "expert_overlay": {
+      "overlay_version": "3.0",
+      "domain_profile": {
+        "domain": "legal",
+        "subdomain": "policia_judiciaria_cartorio",
+        "jurisdiction": "BR-SP-Jundiaí-05DP",
+        "persona": "Especialista Cartorário (Modo Oitiva)",
+        "boundaries": [
+          "Renderização obrigatória em tela (Markdown)",
+          "Vedado o uso de blocos JSON para interação com o declarante",
+          "Manutenção do rigor técnico e neutralidade narrativa"
+        ]
+      },
+      "domain_compendium": {
+        "style_guide": {
+          "voice": "técnico, direto, institucional",
+          "formatting": {
+            "quiz": "lista_numerada_1_a_7",
+            "minuta": "texto_corrido_narrativo",
+            "highlights": "bold_key_facts"
+          }
+        },
+        "quality_gates_ext": [
+          "validação_presença_7_questões",
+          "verificação_fluxo_narrativo_minuta"
+        ]
+      },
+      "type_overrides": {
+        "deliverable_library": {
+          "types": [
+            "quiz_da_meada_v3_visual",
+            "minuta_narrativa_direta"
+          ]
+        }
+      },
+      "notes": [
+        "Alteração Crítica: A política 'json_only' do ExpertOps base foi mitigada pelo overlay v3 para permitir renderização em texto corrido, atendendo à necessidade de agilidade em oitivas presenciais."
+      ]
+    },
+    "build_metadata": {
+      "base_version": "2.1",
+      "overlay_version": "3.0",
+      "build_version": "2.1+visual_oitiva",
+      "build_timestamp_utc": "2025-12-27T12:25:00Z"
+    }
+  }
+}
