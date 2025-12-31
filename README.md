@@ -1,9 +1,9 @@
 # 🧠 OPS: Módulo Quiz da Meada (Especialista Cartorário)
 
 ## 📋 Visão Geral
-Este pacote contém a configuração especializada do protocolo **ExpertOps** para a função de **Especialista Cartorário (Modo Oitiva)**. O objetivo principal é operacionalizar o "Quiz da Meada" e a "Minuta de Declarações" dentro do ecossistema do Charlie_BOT, focando na jurisdição do **05º Distrito Policial de Jundiaí/SP**.
+Este pacote contém a configuração especializada do protocolo **ExpertOps** para a função de **Especialista Cartorário (Modo Oitiva)**. O objetivo principal é operacionalizar de modo apartado a função "Quiz da Meada" e a "Minuta de Declarações" cuja origem vem ecossistema do Charlie_BOT, desenvolvido para a equipe do **05º Distrito Policial de Jundiaí/SP**.
 
-A arquitetura segue um modelo de **Sobreposição (Overlay)**, onde regras específicas refinam e substituem as diretrizes genéricas para atender à necessidade de agilidade e renderização em tela do operador policial.
+A presente arquitetura segue um modelo de **Sobreposição (Overlay)**, onde regras específicas refinam e substituem as diretrizes genéricas do ExpertOps e assim atender à necessidade de agilidade e renderização em tela do operador policial civil.
 
 ---
 
@@ -33,14 +33,14 @@ A arquitetura segue um modelo de **Sobreposição (Overlay)**, onde regras espec
 
 ### Fluxo de Oitiva
 1.  **Entrada:** O sistema recebe o Boletim de Ocorrência (BO) ou relato inicial.
-2.  **Processamento:** O `ExpertOps` analisa lacunas fáticas com base na materialidade (TGC).
+2.  **Processamento:** O `ExpertOps` analisa lacunas fáticas com base na materialidade (sob os parâmetros da TGC).
 3.  **Saída (Quiz):** Gera 7 questões estratégicas numeradas, renderizadas diretamente no chat (sem formatação de código).
-4.  **Minuta:** Após as respostas, converte os dados em texto corrido fluído para o termo de declaração.
+4.  **Minuta:** Após as respostas, converte os dados em texto narrativo em terceira pessoa, formal, corrido e fluído para o termo de declaração.
 
 ### Políticas de Anti-Alucinação (Boundaries)
 Conforme definido no Overlay v2:
 * **Lacunas:** Devem ser marcadas explicitamente como "não informado" ou questionadas no Quiz.
-* **Voz:** Técnica, objetiva e neutra ("Declarante afirma...", "Vítima relata...").
+* **Voz:** Técnica, objetiva e neutra ("Declarante afirma...", "Vítima relata..., Informa que... Cita que... Aduz... Suscita, Nega...").
 * **Estilo:** Proibido uso de tabelas complexas para esta função; prioridade para texto narrativo.
 
 ---
@@ -52,6 +52,6 @@ Ao carregar este módulo no agente (Gemini/Charlie_BOT), a ordem de precedência
 3.  Aplicar `Overlay_retifica_saida.txt` para garantir a formatação visual correta.
 
 **Status da Versão:** v3.0 (Adaptive Consultant + Cartorário Overlay v2 + Render Fix)
-**Responsável:** 05º DP Jundiaí - Setor de Inteligência Cartorária
+**Responsável:** Rodrigo Soares dos Reis, EP - 05º DP Jundiaí/SP
 
 ```
